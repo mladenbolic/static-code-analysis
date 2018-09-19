@@ -1,0 +1,38 @@
+buildscript {
+    ext {
+        rootGradleDir = "${rootProject.rootDir}/gradle"
+    }
+}
+
+plugins {
+    id 'application'
+    id 'java'
+    id 'de.aaschmid.cpd' version '1.1'
+}
+
+apply from: "${rootGradleDir}/staticCodeAnalysis.gradle"
+
+repositories {
+    mavenCentral()
+}
+
+group = 'io.sixhours.analysis'
+version '1.0.0-SNAPSHOT'
+
+targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_1_8
+
+mainClassName = 'io.sixhours.analysis.App'
+
+jar {
+    archiveName = "analysis.jar"
+}
+
+dependencies {
+    annotationProcessor 'org.projectlombok:lombok:1.18.2'
+    compileOnly 'org.projectlombok:lombok:1.18.2'
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.assertj:assertj-core:3.11.0'
+    testImplementation 'org.mockito:mockito-core:2.21.0'
+}
