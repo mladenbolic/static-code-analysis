@@ -1,21 +1,34 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath 'de.aaschmid:gradle-cpd-plugin:1.1'
+    }
+}
+
 apply plugin: 'checkstyle'
 apply plugin: 'findbugs'
 apply plugin: 'pmd'
+apply plugin: de.aaschmid.gradle.plugins.cpd.CpdPlugin
 
 checkstyle {
-    toolVersion = "8.12"
+    toolVersion = '8.12'
     ignoreFailures = false
     configFile = file("${rootGradleDir}/static-code-analysis/checkstyle/checkstyle.xml")
 }
 
 findbugs {
-    toolVersion = "3.0.1"
+    toolVersion = '3.0.1'
     ignoreFailures = false
     excludeFilter = file("${rootGradleDir}/static-code-analysis/findbugs/exclude.xml")
 }
 
 pmd {
-    toolVersion = "6.7.0"
+    toolVersion = '6.7.0'
     ignoreFailures = false
     ruleSetFiles = files("${rootGradleDir}/static-code-analysis/pmd/ruleset.xml")
     ruleSets = []
