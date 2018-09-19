@@ -25,7 +25,6 @@
         <exclude name="GuardLogStatement"/>
         <exclude name="JUnitTestContainsTooManyAsserts"/>
         <exclude name="AvoidPrintStackTrace"/>
-        <exclude name="SystemPrintln"/>
     </rule>
 
     <rule ref="category/java/codestyle.xml">
