@@ -1,5 +1,0 @@
-<FindBugsFilter>
-    <Match>
-        <Class name="~.*\.*Mock(\$.*)?" />
-    </Match>
-</FindBugsFilter>
