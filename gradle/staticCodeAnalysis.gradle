@@ -21,7 +21,6 @@ checkstyle {
 findbugs {
     toolVersion = '3.0.1'
     ignoreFailures = false
-    excludeFilter = file("${rootGradleDir}/static-code-analysis/findbugs/exclude.xml")
 }
 
 pmd {
