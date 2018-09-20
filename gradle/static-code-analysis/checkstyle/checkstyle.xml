@@ -14,7 +14,7 @@
 
     Authors: Max Vetrenko, Ruslan Diachenko, Roman Ivanov.
 
-    NOTE: Modified versions of Google Style Code. Using 4 space, instead of 2 space indentation.
+    NOTE: This is a modified versions of Google Style Code, using 4 space instead of 2 space indentation.
  -->
 
 <module name = "Checker">
