@@ -34,7 +34,7 @@ pmd {
 cpd {
     language = 'java'
     toolVersion = '6.0.0'
-    minimumTokenCount = 100 // circa to 6-10 lines
+    minimumTokenCount = 100 // approximately 5-10 lines
 }
 
 cpdCheck {
@@ -42,6 +42,7 @@ cpdCheck {
         text.enabled = false
         xml.enabled = true
     }
+    ignoreAnnotations = true
     source = sourceSets.main.allJava
 }
 
