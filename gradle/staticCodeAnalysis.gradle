@@ -18,7 +18,7 @@ checkstyle {
 }
 
 spotbugs {
-    toolVersion = '3.1.12'
+    toolVersion = '4.0.0-beta4'
     ignoreFailures = false
 }
 
