@@ -1,30 +1,29 @@
 buildscript {
     repositories {
         mavenCentral()
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
     }
     dependencies {
-        classpath 'de.aaschmid:gradle-cpd-plugin:1.1'
+        classpath 'de.aaschmid:gradle-cpd-plugin:3.1'
+        classpath "com.github.spotbugs:spotbugs-gradle-plugin:3.0.0"
     }
 }
 
-apply plugin: 'checkstyle'
-apply plugin: 'findbugs'
-apply plugin: 'pmd'
-apply plugin: de.aaschmid.gradle.plugins.cpd.CpdPlugin
-
 checkstyle {
-    toolVersion = '8.12'
+    toolVersion = '8.26'
     ignoreFailures = false
     configFile = file("${rootGradleDir}/static-code-analysis/checkstyle/checkstyle.xml")
 }
 
-findbugs {
-    toolVersion = '3.0.1'
+spotbugs {
+    toolVersion = '3.1.12'
     ignoreFailures = false
 }
 
 pmd {
-    toolVersion = '6.7.0'
+    toolVersion = '6.19.0'
     ignoreFailures = false
     ruleSetFiles = files("${rootGradleDir}/static-code-analysis/pmd/ruleset.xml")
     ruleSets = []
@@ -33,7 +32,7 @@ pmd {
 
 cpd {
     language = 'java'
-    toolVersion = '6.0.0'
+    toolVersion = '6.1.0'
     minimumTokenCount = 100 // approximately 5-10 lines
 }
 
@@ -53,7 +52,7 @@ tasks.withType(Checkstyle) {
     }
 }
 
-tasks.withType(FindBugs) {
+tasks.withType(com.github.spotbugs.SpotBugsTask) {
     reports {
         xml.enabled false
         html.enabled true
@@ -62,7 +61,7 @@ tasks.withType(FindBugs) {
 
 tasks.withType(Pmd) {
     reports {
-        xml.enabled false
+        xml.enabled true
         html.enabled true
     }
 }

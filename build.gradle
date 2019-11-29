@@ -5,6 +5,10 @@ buildscript {
 }
 
 plugins {
+    id 'checkstyle'
+    id 'com.github.spotbugs' version '3.0.0'
+    id 'pmd'
+    id 'de.aaschmid.cpd' version '3.1'
     id 'application'
     id 'java'
 }
@@ -18,18 +22,18 @@ repositories {
 group = 'io.sixhours.analysis'
 version '1.0.0-SNAPSHOT'
 
-targetCompatibility = JavaVersion.VERSION_1_8
-sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_13
+sourceCompatibility = JavaVersion.VERSION_13
 
 mainClassName = 'io.sixhours.analysis.App'
 
 jar {
-    archiveName = "analysis.jar"
+    archiveFileName = "analysis.jar"
 }
 
 dependencies {
-    annotationProcessor 'org.projectlombok:lombok:1.18.2'
-    compileOnly 'org.projectlombok:lombok:1.18.2'
+    annotationProcessor 'org.projectlombok:lombok:1.18.10'
+    compileOnly 'org.projectlombok:lombok:1.18.10'
 
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.assertj:assertj-core:3.11.0'
