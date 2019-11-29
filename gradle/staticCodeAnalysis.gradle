@@ -32,7 +32,7 @@ pmd {
 
 cpd {
     language = 'java'
-    toolVersion = '6.1.0'
+    toolVersion = '6.19.0'
     minimumTokenCount = 100 // approximately 5-10 lines
 }
 
